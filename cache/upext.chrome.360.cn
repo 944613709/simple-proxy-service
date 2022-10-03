@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Server: nginx/1.20.2
+Date: Mon, 03 Oct 2022 05:07:25 GMT
+Content-Type: text/xml; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+
+e5
+<?xml version="1.0" encoding="UTF-8"?><gupdate xmlns="http://www.google.com/update2/response" protocol="2.0" server="prod"><app appid="cfbkpilajlmedibkjkhcckpkpphhhklm" status="ok"><updatecheck status="noupdate"/></app></gupdate>
+0
+
