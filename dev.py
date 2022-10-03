@@ -10,7 +10,7 @@ PARAMETERS = {
     'PORT': 9999,
     'MAX_LISTEN': 50,
     'MAX_LENGTH': 4096,
-    'CACHE_SIZE': 1000
+    'CACHE_SIZE': 100000
 }
 
 # 禁止访问的url
@@ -53,10 +53,11 @@ def tcp_link(dataSocket, address):
     print('urlparse为：'+ str(url))
     hostIP = address[0]  # 获得主机IP
 
-    # print(request_line[1])
-    if url.hostname is not None:
-        print('应该转发访问的url.hostname地址:' + url.hostname, end='   ')
-        print('真实发起访问的hostIP:'+ hostIP)
+    if (url.hostname is None) and (url.scheme is None):
+        print("访问地址为空，关闭该链接")
+        dataSocket.close()
+        return
+
     if url.hostname is None:  # 主机名为空
         print('url.hostname为空,关闭该连接')
         dataSocket.close()
@@ -112,12 +113,12 @@ def tcp_link(dataSocket, address):
 
     if not os.path.exists(path) or modified:  # 如果没有该网页的缓存或者网页已被修改
         # 向服务器发送数据，才能接收到服务器发回来的数据
-        print('给真正要访问的地址:' +url.hostname + '发送访问请求')
+        print('给真正要访问的地址:' + url.hostname + '发送访问请求')
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.connect((url.hostname, 80))
         server_socket.sendall(message.encode())
 
-        print('发送完毕,代理服务器准备接受来自' +url.hostname + '的数据，随后转发给客户端，并且更新代理服务器cache')
+        print('发送完毕,代理服务器准备接受来自' + url.hostname + '的数据，随后转发给客户端，并且更新代理服务器cache')
         f = open(path, 'wb')  # 重写缓存
         while True:
             buff = server_socket.recv(PARAMETERS['MAX_LENGTH'])

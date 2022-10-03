@@ -1,8 +1,0 @@
-HTTP/1.1 200 OK
-Server: nginx/1.19.10
-Date: Mon, 03 Oct 2022 05:18:35 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 184
-Connection: keep-alive
-
-{"errno":0,"errmsg":"","data":{"next_poll":600,"wid":"","protect_gap":10,"prev_gap":0,"mck":"CKvh6ZkGGgR3d3drMIPm6ZkGOLXh6ZkGQAFIk_qTlAY="},"type":0,"t_str":"","timestamp":1664774315}

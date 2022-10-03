@@ -10,7 +10,7 @@ PARAMETERS = {
     'PORT': 9999,
     'MAX_LISTEN': 50,
     'MAX_LENGTH': 4096,
-    'CACHE_SIZE': 1000
+    'CACHE_SIZE': 10000
 }
 
 # 禁止访问的url
