@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 # 代理服务器相关参数
 PARAMETERS = {
     'HOST': '127.0.0.1',
-    'PORT': 9999,
+    'PORT': 10086,
     'MAX_LISTEN': 50,
     'MAX_LENGTH': 4096,
     'CACHE_SIZE': 10000
@@ -31,7 +31,7 @@ fishing = {
 cache_dir = './cache/'
 
 
-def tcp_link(dataSocket, address):
+def tcp_link(dataSocket, address, threadId):
     """
     建立TCP连接
     :param dataSocket: socket
@@ -55,22 +55,22 @@ def tcp_link(dataSocket, address):
 
     # print(request_line[1])
     if url.hostname is not None:
-        print('应该转发访问的url.hostname地址:' + url.hostname, end='   ')
-        print('真实发起访问的hostIP:'+ hostIP)
+        print('线程:' + str(threadId) + '-->' + ' 应该转发访问的url.hostname地址:' + url.hostname, end='   ')
+        print('线程:' + str(threadId) + '-->' + '真实发起访问的hostIP:'+ hostIP)
     if url.hostname is None:  # 主机名为空
-        print('url.hostname为空,关闭该连接')
+        print('线程:' + str(threadId) + '-->' + 'url.hostname为空,关闭该连接')
         dataSocket.close()
         return
     if url.hostname in No_Access_url:  # 主机名被禁止访问
-        print(str(url.hostname) + ' is not accessed.')
+        print('线程:' + str(threadId) + '-->' + str(url.hostname) + ' is not accessed.')
         dataSocket.close()
         return
     if Blocked_User:  # 用户IP被过滤
-        print('the user ' + str(hostIP) + ' is forbidden.')
+        print('线程:' + str(threadId) + '-->' + 'the user ' + str(hostIP) + ' is forbidden.')
         dataSocket.close()
         return
     if url.hostname in fishing:  # 主机名为钓鱼网站
-        print('fishing from ' + str(url.hostname) + ' to ' + str(fishing[url.hostname]))
+        print('线程:' + str(threadId) + '-->' + 'fishing from ' + str(url.hostname) + ' to ' + str(fishing[url.hostname]))
         new_hostname = fishing[url.hostname]  # 新的目标主机名
         message = message.replace(request_line[1], 'http://' + new_hostname + '/')
         message = message.replace(url.hostname, new_hostname)  # 将报文重构
@@ -104,7 +104,7 @@ def tcp_link(dataSocket, address):
         # print(data)
         server_socket.close()
         if data[9:12] == '304':  # 响应码为304，表示网页未变化，从cache中读取网页
-            print('the web is not modified, read from cache.')
+            print('线程:' + str(threadId) + '-->' + 'the web is not modified, read from cache.')
             with open(path, "rb") as f:
                 dataSocket.sendall(f.read())
         else:  # 网页变化，标记为已修改
@@ -112,26 +112,26 @@ def tcp_link(dataSocket, address):
 
     if not os.path.exists(path) or modified:  # 如果没有该网页的缓存或者网页已被修改
         # 向服务器发送数据，才能接收到服务器发回来的数据
-        print('给真正要访问的地址:' +url.hostname + '发送访问请求')
+        print('线程:' + str(threadId) + '-->' + '给真正要访问的地址:' +url.hostname + '发送访问请求')
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.connect((url.hostname, 80))
         server_socket.sendall(message.encode())
 
-        print('发送完毕,代理服务器准备接受来自' +url.hostname + '的数据，随后转发给客户端，并且更新代理服务器cache')
+        print('线程:' + str(threadId) + '-->' + '发送完毕,代理服务器准备接受来自' +url.hostname + '的数据，随后转发给客户端，并且更新代理服务器cache')
         f = open(path, 'wb')  # 重写缓存
         while True:
             buff = server_socket.recv(PARAMETERS['MAX_LENGTH'])
             if not buff:
                 # print(buff)
                 # 如果返回空bytes，表示对方关闭了连接
-                print('对方服务器发送完毕数据，对方服务器关闭连接')
+                print('线程:' + str(threadId) + '-->' + '对方服务器发送完毕数据，对方服务器关闭连接')
                 f.close()
                 server_socket.close()
                 break
             f.write(buff)  # 将接收到的数据写入缓存
             dataSocket.sendall(buff)  # 通过代理服务器的dataSocket将接收到的数据转发给客户端
-        print('代理服务器转发给客户端数据，转发已完毕')
-        print('代理服务器的dataSocket关闭')
+        print('线程:' + str(threadId) + '-->' + '代理服务器转发给客户端数据，转发已完毕')
+        print('线程:' + str(threadId) + '-->' + '代理服务器的dataSocket关闭')
         dataSocket.close()
 
 
@@ -147,12 +147,14 @@ def main():
     if not os.path.exists(cache_dir):
         os.mkdir(cache_dir)
     print('初始化成功')
+    threadId = 1
     while True:
         # 在循环中监听9999端口，接收到客户端请求则创建一个新线程处理
         print('等待连接')
         dataSocket, address = listenSocket.accept()
         print('接受来自主机' + str(address)  + '的连接')
-        threading.Thread(target=tcp_link, args=(dataSocket, address)).start()
+        threading.Thread(target=tcp_link, args=(dataSocket, address, threadId)).start()
+        threadId = threadId+1
 
 
 if __name__ == '__main__':

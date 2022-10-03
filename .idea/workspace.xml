@@ -2,8 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbb3d3c-9c32-47a7-943d-65f95eaef917" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/101.199.253.54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/101.199.253.71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/140.207.198.230" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/140.207.202.204" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/180.163.249.141" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/180.163.251.163" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/36.110.213.244" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/42.236.9.57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/browser.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cdata.browser.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cdn.weather.hao.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/clientservices.googleapis.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cloud.browser.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/conf.wsm.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cs.hit.edu.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cseupdate.360safe.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/ctldl.windowsupdate.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cx.soft.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/dd.browser.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/login.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/passport.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/pconf.f.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/profile.chrome.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/profile.se.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/qurl.f.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/s.f.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/s.safe.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/static-xl.a.88cdn.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/t.wg.360-api.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/today.hit.edu.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/update.360safe.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/updatem.360safe.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/upext.chrome.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/vconf.f.360.cn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/wp.safe.360.cn" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -44,7 +78,7 @@
       <recent name="D:\备份\计算机网络\Lab1\socket示例" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.dev">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lab1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,6 +93,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\备份\计算机网络\Lab1\socket示例\client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Lab1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dev.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,6 +191,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dev" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
@@ -150,7 +207,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664766381623</updated>
-      <workItem from="1664766412742" duration="9661000" />
+      <workItem from="1664766412742" duration="13734000" />
     </task>
     <servers />
   </component>
@@ -161,6 +218,7 @@
     <SUITE FILE_PATH="coverage/Lab1$client.coverage" NAME="client 覆盖结果" MODIFIED="1664769331415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab1$test.coverage" NAME="test 覆盖结果" MODIFIED="1664768712416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lab1$server.coverage" NAME="server 覆盖结果" MODIFIED="1664769300587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lab1$main.coverage" NAME="main 覆盖结果" MODIFIED="1664776613510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lab1$main.coverage" NAME="main 覆盖结果" MODIFIED="1664776650417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lab1$dev.coverage" NAME="dev 覆盖结果" MODIFIED="1664780382126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
