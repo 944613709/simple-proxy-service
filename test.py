@@ -16,7 +16,7 @@ PARAMETERS = {
 White_url = [
     'cs.hit.edu.cn',  # 可访问，访问快
     'jwts.hit.edu.cn',  # 可访问且可以缓存，但是访问慢
-    'today.hit.edu.cn',  # 这里默认是https，需要人工加上http，但是显示全字符
+    # 'today.hit.edu.cn',  # 这里默认是https，需要人工加上http，但是显示全字符
     'software.hit.edu.cn',  # 可访问
     'example.com',#可访问且可以缓存，多刷新几次，还挺快
     'www.7k7k.com',  # 可访问但是补全还有关联的子host "i1.7k7kimg.cn"
@@ -31,7 +31,7 @@ Black_url = [
 
 # 过滤用户IP
 Blocked_User_IP = [
-    # '127.0.0.1'
+    '127.0.0.1'
 ]
 
 # 钓鱼
@@ -122,11 +122,12 @@ def socket_tcp(dataSocket, address, threadId):
         # print('线程:' + str(threadId) + '-->' + str(target_host_without_port) + '不在白名单，禁止访问')
         dataSocket.close()
         return
-
+    # 黑名单内的不允许访问
     # if target_host_without_port in Black_url:
     #     print('线程:' + str(threadId) + '-->' + str(target_host_without_port) + '黑名单，禁止访问')
     #     dataSocket.close()
     #     return
+
     print('------target_host：------')
     print("目的host:" + target_host_without_port)
     print("目的port:" + str(target_port))
